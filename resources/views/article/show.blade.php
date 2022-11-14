@@ -10,6 +10,9 @@
                         {{ $article->title }}
                     </h2>
                     <p class="mb-8 leading-relaxed">
+                        @if ($article->getFirstMediaUrl())
+                        <img class="w-full m-auto h-1/2 justify-center" src="{{ $article->getFirstMediaUrl()}}" />
+                        @endif
                         {{ $article->full_text }}
                     </p>
                     <div class="mb-1 mt-auto flex w-full flex-wrap items-center border-b-2 border-gray-100 pb-4">

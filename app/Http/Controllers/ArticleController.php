@@ -57,7 +57,9 @@ class ArticleController extends Controller
             'publish' => $request->publish,
             'category_id' => $request->category_id,
         ]);
-        $article->addMedia($request->image_url)->toMediaCollection();
+        if($request->image_url){
+            $article->addMedia($request->image_url)->toMediaCollection();
+        }
         $article->tags()->sync($request->tags);
 
         return redirect()->route('article.dashboard');
